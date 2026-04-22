@@ -2,7 +2,18 @@
     ViewData["Title"] = "Home";
 }
 
-<section>
-    <h1>Authenticated area</h1>
-    <p>If you can see this page, cookie authentication is working.</p>
+<section class="card">
+    <h1 class="hero-title">Authenticated area</h1>
+    <p class="hero-subtitle">If you can see this page, cookie authentication is working and your session is active.</p>
+
+    <div class="grid">
+        <article class="stat">
+            <h3>Session status</h3>
+            <p>Signed in and protected by ASP.NET Core cookie authentication.</p>
+        </article>
+        <article class="stat">
+            <h3>Template goal</h3>
+            <p>Provide a clean baseline for secure and modern web application UX.</p>
+        </article>
+    </div>
 </section>

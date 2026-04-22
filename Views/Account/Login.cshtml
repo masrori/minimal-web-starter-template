@@ -3,8 +3,9 @@
     ViewData["Title"] = "Login";
 }
 
-<section>
-    <h1>Login</h1>
+<section class="card" style="max-width: 460px; margin: 0 auto;">
+    <h1 class="hero-title" style="font-size: 1.85rem;">Welcome back</h1>
+    <p class="hero-subtitle">Sign in to continue to your authenticated workspace.</p>
 
     <form asp-action="Login" method="post">
         @Html.AntiForgeryToken()
@@ -12,26 +13,26 @@
 
         <div asp-validation-summary="ModelOnly"></div>
 
-        <div>
+        <div class="form-row">
             <label asp-for="Username"></label>
-            <input asp-for="Username" />
+            <input asp-for="Username" autocomplete="username" />
             <span asp-validation-for="Username"></span>
         </div>
 
-        <div>
+        <div class="form-row">
             <label asp-for="Password"></label>
-            <input asp-for="Password" />
+            <input asp-for="Password" autocomplete="current-password" />
             <span asp-validation-for="Password"></span>
         </div>
 
-        <div>
+        <div class="form-row">
             <label>
                 <input asp-for="RememberMe" /> Remember me
             </label>
         </div>
 
-        <button type="submit">Sign in</button>
+        <button class="btn btn-primary" type="submit">Sign in</button>
     </form>
 
-    <p><strong>Demo credentials:</strong> admin / Pass@123</p>
+    <p class="hero-subtitle" style="margin-top: 1rem;"><strong>Demo credentials:</strong> admin / Pass@123</p>
 </section>

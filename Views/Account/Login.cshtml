@@ -1,0 +1,37 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<section>
+    <h1>Login</h1>
+
+    <form asp-action="Login" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
+
+        <div asp-validation-summary="ModelOnly"></div>
+
+        <div>
+            <label asp-for="Username"></label>
+            <input asp-for="Username" />
+            <span asp-validation-for="Username"></span>
+        </div>
+
+        <div>
+            <label asp-for="Password"></label>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+
+        <div>
+            <label>
+                <input asp-for="RememberMe" /> Remember me
+            </label>
+        </div>
+
+        <button type="submit">Sign in</button>
+    </form>
+
+    <p><strong>Demo credentials:</strong> admin / Pass@123</p>
+</section>

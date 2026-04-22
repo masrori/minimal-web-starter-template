@@ -45,14 +45,21 @@ public class AccountController : Controller
         var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
         var principal = new ClaimsPrincipal(identity);
 
+        var authProperties = new AuthenticationProperties
+        {
+            IsPersistent = model.RememberMe
+        };
+
+        // Respect the remember-me option by creating a longer-lived persistent cookie.
+        if (model.RememberMe)
+        {
+            authProperties.ExpiresUtc = DateTimeOffset.UtcNow.AddDays(14);
+        }
+
         await HttpContext.SignInAsync(
             CookieAuthenticationDefaults.AuthenticationScheme,
             principal,
-            new AuthenticationProperties
-            {
-                IsPersistent = model.RememberMe,
-                ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(30)
-            });
+            authProperties);
 
         if (!string.IsNullOrWhiteSpace(returnUrl) && Url.IsLocalUrl(returnUrl))
         {

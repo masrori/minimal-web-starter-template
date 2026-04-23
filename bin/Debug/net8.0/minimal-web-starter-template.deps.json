@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "minimal-web-starter-template/1.0.0": {
+        "runtime": {
+          "minimal-web-starter-template.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "minimal-web-starter-template/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
